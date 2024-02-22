@@ -16,6 +16,10 @@ If you have any requirements or dependencies, add a section describing those and
 
 Users appreciate release notes as you update your extension.
 
+### 0.0.2
+
+更新插件图标。
+
 ### 0.0.1
 
 第一个版本，实现了基本功能。
