@@ -1,10 +1,10 @@
 {
-  "name": "tc-vform",
-  "displayName": "TC VForm",
+  "name": "tc-vform-maker",
+  "displayName": "TC VForm Maker",
   "description": "",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.86.0"
+    "vscode": "^1.40.0"
   },
   "categories": [
     "Other"
@@ -12,10 +12,22 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "tc-vform.openTcVForm",
-      "title": "Open TC VForm"
-    }]
+    "commands": [
+      {
+        "command": "tc-vform.openTcVForm",
+        "title": "Open TC VForm Designer",
+        "shortTitle": "打开tc vform设计器"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "tc-vform.openTcVForm",
+          "group": "tc-group",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",

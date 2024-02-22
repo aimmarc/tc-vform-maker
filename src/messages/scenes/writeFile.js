@@ -9,9 +9,10 @@ const { globalData } = require('../../common/global');
  */
 function getDocFolderPath() {
     const { currentDocumentPath } = globalData;
-    if (!currentDocumentPath) return vscode.workspace.rootPath;
-    const index = currentDocumentPath.lastIndexOf('/');
-    return currentDocumentPath.slice(0, index);
+    return currentDocumentPath ? currentDocumentPath : vscode.workspace.rootPath;
+    // if (!currentDocumentPath) return vscode.workspace.rootPath;
+    // const index = currentDocumentPath.lastIndexOf('/');
+    // return currentDocumentPath.slice(0, index);
 }
 
 /**
@@ -31,7 +32,6 @@ function writeFile(option = {}) {
         fs.writeFileSync(filePath, code, 'utf8');
         vscode.window.showInformationMessage('文件已保存');
         globalData.webViewPanel.dispose();
-        console.log(filePath);
         const docUri = vscode.Uri.parse(filePath);
         vscode.workspace.openTextDocument(docUri).then(vscode.window.showTextDocument);
         globalData.webViewPanel = null;
