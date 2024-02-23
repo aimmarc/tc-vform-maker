@@ -16,6 +16,10 @@ If you have any requirements or dependencies, add a section describing those and
 
 Users appreciate release notes as you update your extension.
 
+### 0.0.3
+
+修复windows不能保存和预览文件的问题。
+
 ### 0.0.2
 
 更新插件图标。
