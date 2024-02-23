@@ -28,7 +28,8 @@ function writeFile(option = {}) {
         return;
     }
     try {
-        const filePath = path.join(folderPath, fileName);
+        let filePath = path.join(folderPath, fileName);
+        if (/\\/.test(filePath[0])) filePath = filePath.slice(1);
         fs.writeFileSync(filePath, code, 'utf8');
         vscode.window.showInformationMessage('文件已保存');
         globalData.webViewPanel.dispose();
